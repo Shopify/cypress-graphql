@@ -7,12 +7,13 @@
   "types": "dist/index.d.ts",
   "prettier": "@shopify/prettier-config",
   "scripts": {
-    "test": "cypress",
     "build": "tsc",
+    "cypress": "cypress run",
+    "cypress:open": "cypress open",
     "lint": "eslint '**/*.{ts,tsx}' --max-warnings 0",
     "clean": "rimraf ./dist tsconfig.tsbuildinfo",
     "prepublishOnly": "yarn run build",
-    "preversion": "yarn run test",
+    "preversion": "yarn run cypress",
     "postversion": "git push origin main --follow-tags && echo \"Log in to shipit to deploy version $npm_package_version\""
   },
   "publishConfig": {
@@ -30,12 +31,16 @@
   },
   "homepage": "https://github.com/Shopify/cypress-graphql",
   "engines": {
-    "node": ">=12.14.0"
+    "node": ">=16.13.2",
+    "yarn": "1.22.17"
   },
   "devDependencies": {
     "@shopify/eslint-plugin": "^41.0.1",
     "@shopify/prettier-config": "^1.1.2",
     "cypress": "^7.0.0",
+    "eslint": "^8.10.0",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
     "typescript": "^4.6.2"
   },
   "files": [

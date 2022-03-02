@@ -1,0 +1,20 @@
+on: [push, pull_request]
+
+name: Test
+
+jobs:
+  test:
+    runs-on: ubuntu-latest # not self-hosted - open source project
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      - name: Install
+        run: yarn install
+      - name: Lint
+        run: yarn run lint
+      - name: Build
+        run: yarn run build
+      - name: Test
+        run: yarn run cypress

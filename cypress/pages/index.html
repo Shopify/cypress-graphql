@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Todo List</title>
+  <title>Example Todo List</title>
   <style>
     body {
       font-family: Montserrat, helvetica, arial, sans-serif; 
@@ -43,20 +43,38 @@
   </div>
 
   <script>
-  // Let's go easy on the API - just fetch 1 item
-  fetch('https://jsonplaceholder.typicode.com/todos/1')
+    // Example test query - this won't do anything
+    fetch('/api/graphql', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        operationName: 'TestQuery',
+        query: 'query TestQuery {}',
+        variables: {}
+      })
+    })
     .then((res) => res.json())
-    .then((todo) => {
-      document
-        .querySelector('.content .container')
-        .innerHTML = `
-        <section id="todo">
-          <h2>${todo.id}) ${todo.title}</h2>
-          <p>${todo.completed ? 'Completed' : 'Incomplete'}</p>
-        </section>
-        `
-        // This log statement is spied upon in Cypress
-        console.log(todo)
+    .then((res) => {
+      console.log(res);
+    })
+
+    // Example test mutation - this won't do anything
+    fetch('/api/graphql', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        operationName: 'TestMutation',
+        query: 'mutation TestMutation {}',
+        variables: {}
+      })
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
     })
   </script>
 

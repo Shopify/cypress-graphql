@@ -1,4 +1,8 @@
-/// <reference path="./index.d.ts" />
+import {
+  HttpResponseInterceptor,
+  StaticResponse,
+} from 'cypress/types/net-stubbing';
+
 // Import custom commands
 import {interceptGql} from './commands/intereceptGql';
 
@@ -14,9 +18,15 @@ export * from './utils/hasOperationName';
  **/
 Cypress.Commands.add('interceptGql', interceptGql);
 
+/**
+ * Augment Cypress's interfaces so they include typings for custom commands
+ * @see https://docs.cypress.io/guides/tooling/typescript-support#Types-for-custom-commands
+ */
+
+/* eslint-disable @typescript-eslint/no-namespace */
 declare global {
   namespace Cypress {
-    interface Chainable<Subject> {
+    interface Chainable {
       //
       /**
        * interceptGql will log and intercept GQL queries/mutations based on the operationname
@@ -29,9 +39,10 @@ declare global {
         graphqlApiUrl: string,
         knownOperations: (
           | string
+          | [string, StaticResponse | HttpResponseInterceptor]
           | [string, any | any]
         )[],
-      ): Cypress.Chainable<undefined>;
+      ): Chainable<undefined>;
     }
   }
 }
