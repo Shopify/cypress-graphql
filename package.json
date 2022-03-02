@@ -1,6 +1,6 @@
 {
   "name": "@shopify/cypress-graphql",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "description": "Cypress commands for stubbing, intercepting and testing graphql endpoints",
   "main": "dist/index.js",
