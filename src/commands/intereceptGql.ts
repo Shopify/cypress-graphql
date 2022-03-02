@@ -17,8 +17,8 @@ export const interceptGql = (
   Cypress.log({
     name: 'Intercept GraphQL',
     displayName: 'interceptGql',
-    message: knownOperations.map((op) => (Array.isArray(op) ? op[0] : op)),
-    consoleProps: () => ({ graphqlApiUrl, knownOperations }),
+    message: knownOperations.map((op) => Array.isArray(op) ? op[0] : op),
+    consoleProps: () => ({graphqlApiUrl, knownOperations}),
   });
   cy.intercept('POST', graphqlApiUrl, (req) => {
     // Define sub-routes based on the graphql operation name
@@ -45,5 +45,6 @@ export const interceptGql = (
         return undefined;
       }
     }
+    return undefined;
   }).as('GraphQL');
 };

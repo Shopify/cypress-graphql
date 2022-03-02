@@ -1,2 +1,2 @@
-/// <reference types="cypress" />
-import '../../dist/';
+// / <reference types="cypress" />
+import '../../dist';

@@ -7,8 +7,7 @@ module.exports = {
   extends: ['plugin:@shopify/typescript'],
   ignorePatterns: ['dist/'],
   rules: {
-    'import/no-named-as-default': 0,
-    'no-mixed-operators': 0,
-    'no-console': 0,
-  },
+    '@typescript-eslint/no-namespace': 'off',
+    'no-confusing-arrow': 'off',
+  }
 };

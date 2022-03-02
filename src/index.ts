@@ -22,8 +22,6 @@ Cypress.Commands.add('interceptGql', interceptGql);
  * Augment Cypress's interfaces so they include typings for custom commands
  * @see https://docs.cypress.io/guides/tooling/typescript-support#Types-for-custom-commands
  */
-
-/* eslint-disable @typescript-eslint/no-namespace */
 declare global {
   namespace Cypress {
     interface Chainable {
@@ -46,4 +44,3 @@ declare global {
     }
   }
 }
-/* eslint-enable @typescript-eslint/no-namespace */
