@@ -18,7 +18,7 @@ export const interceptGql = (
     name: 'Intercept GraphQL',
     displayName: 'interceptGql',
     message: knownOperations.map((op) => (Array.isArray(op) ? op[0] : op)),
-    consoleProps: () => knownOperations,
+    consoleProps: () => ({ graphqlApiUrl, knownOperations }),
   });
   cy.intercept('POST', graphqlApiUrl, (req) => {
     // Define sub-routes based on the graphql operation name

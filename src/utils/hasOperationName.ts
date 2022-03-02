@@ -1,4 +1,4 @@
-export const hasOperationName = (req, operationName) => {
+export const hasOperationName = (req: any, operationName: string) => {
   const {body} = req;
   return (
     /* eslint-disable-next-line no-prototype-builtins */

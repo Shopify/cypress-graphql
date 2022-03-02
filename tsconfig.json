@@ -1,18 +1,17 @@
 {
-  "extends": "../../config/typescript/tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "build/ts",
+    "pretty": true,
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "dist",
     "baseUrl": "src",
-    "paths": {
-      "cypress": ["node_modules/cypress"]
-    }
+    "strict": true,
+    "esModuleInterop": true,
+    "noEmitOnError": false,
+    "types": [
+      "node",
+      "cypress"
+    ],
   },
-  "include": [
-    "./src/**/*.ts",
-    "../../node_modules/cypress",
-    "cypress/*/*.ts"
-  ],
-  // "references": [
-  //   {"path": "../../node_modules/cypress"},
-  // ]
+  "include": ["src"]
 }
