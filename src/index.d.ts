@@ -1,6 +1,3 @@
-/// <reference types="cypress" />
-
-
 /**
  * Augment Cypress's interfaces so they include typings for custom commands
  * @see https://docs.cypress.io/guides/tooling/typescript-support#Types-for-custom-commands
@@ -20,7 +17,6 @@ declare namespace Cypress {
       graphqlApiUrl: string,
       knownOperations: (
         | string
-        // | [string, StaticResponse | HttpResponseInterceptor]
         | [string, any | any]
       )[],
     ): Cypress.Chainable<undefined>;

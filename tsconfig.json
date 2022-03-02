@@ -3,11 +3,13 @@
     "pretty": true,
     "target": "es5",
     "module": "commonjs",
+    "moduleResolution": "node",
     "outDir": "dist",
     "baseUrl": "src",
     "strict": true,
     "esModuleInterop": true,
     "noEmitOnError": false,
+    "declaration": true,
     "types": [
       "node",
       "cypress"
