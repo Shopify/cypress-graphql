@@ -3,7 +3,7 @@ on: [push, pull_request]
 name: CI
 
 jobs:
-  test:
+  tests:
     runs-on: ubuntu-latest # not self-hosted - open source project
     steps:
       - uses: actions/checkout@master
