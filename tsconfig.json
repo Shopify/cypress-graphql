@@ -1,0 +1,18 @@
+{
+  "extends": "../../config/typescript/tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "build/ts",
+    "baseUrl": "src",
+    "paths": {
+      "cypress": ["node_modules/cypress"]
+    }
+  },
+  "include": [
+    "./src/**/*.ts",
+    "../../node_modules/cypress",
+    "cypress/*/*.ts"
+  ],
+  // "references": [
+  //   {"path": "../../node_modules/cypress"},
+  // ]
+}
