@@ -1,8 +1,8 @@
 context('cy.interceptGql', () => {
   // Set up a mock graphql endpoint using a normal cypress route interceptor
   beforeEach(() => {
-    cy.intercept('POST', '**/api/graphql', { data: 'Default response body' }).as('MockAPI')
-  })
+    cy.intercept('POST', '**/api/graphql', {data: 'Default response body'}).as('MockAPI');
+  });
 
   describe('registering the command', () => {
     it('should register the command automatically', () => {
@@ -15,7 +15,7 @@ context('cy.interceptGql', () => {
   describe('spying on requests (no modifications)', () => {
     beforeEach(() => {
       // Intercept requests to /api/graphql
-      cy.interceptGql('**/api/graphql', ['TestQuery', 'TestMutation'])
+      cy.interceptGql('**/api/graphql', ['TestQuery', 'TestMutation']);
       // Visit the example app, which is a page that will trigger a query and mutation
       cy.visit('cypress/pages/index.html');
     });
@@ -39,9 +39,9 @@ context('cy.interceptGql', () => {
     beforeEach(() => {
       // Stub requests for this endpoint
       cy.interceptGql('**/api/graphql', [
-        ['TestQuery', { statusCode: 200, body: { data: 'Intercepted Query!' } }],
-        ['TestMutation', { statusCode: 200, body: { data: 'Intercepted Mutation!' } }]
-      ])
+        ['TestQuery', {statusCode: 200, body: {data: 'Intercepted Query!'}}],
+        ['TestMutation', {statusCode: 200, body: {data: 'Intercepted Mutation!'}}],
+      ]);
       cy.visit('cypress/pages/index.html');
     });
 
