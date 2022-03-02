@@ -24,8 +24,7 @@
   "author": "Shopify Inc.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shopify/cypress-graphql.git",
-    "directory": "packages/cypress-graphql"
+    "url": "git+https://github.com/Shopify/cypress-graphql.git"
   },
   "bugs": {
     "url": "https://github.com/Shopify/cypress-graphql/issues"

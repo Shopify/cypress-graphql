@@ -6,3 +6,5 @@ coverage/
 yarn-error.log
 tsdocs/
 tsconfig.tsbuildinfo
+cypress/videos
+cypress/screenshots
