@@ -17,7 +17,7 @@ yarn add --dev @shopify/cypress-graphql
 Then in your cypress/support/index files, import the entire package to register these commands.
 
 ```
-import '@shopify/cypress-graphql
+import '@shopify/cypress-graphql';
 ```
 
 Typescript types are automatically included, so no further action is required.
