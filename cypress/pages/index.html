@@ -76,6 +76,28 @@
     .then((res) => {
       console.log(res);
     })
+
+    // Example test query collection - this won't do anything
+    fetch('/api/graphql', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify([{
+        operationName: 'TestQueryCollection',
+        query: 'query TestQueryCollection {}',
+        variables: {}
+      }, {
+          operationName: 'TestQueryCollection',
+          query: 'query TestQueryCollection {}',
+          variables: {}
+        }
+      ]),
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+    })
   </script>
 
 </body>

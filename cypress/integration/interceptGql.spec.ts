@@ -15,7 +15,7 @@ context('cy.interceptGql', () => {
   describe('spying on requests (no modifications)', () => {
     beforeEach(() => {
       // Intercept requests to /api/graphql
-      cy.interceptGql('**/api/graphql', ['TestQuery', 'TestMutation']);
+      cy.interceptGql('**/api/graphql', ['TestQuery', 'TestMutation', 'TestQueryCollection']);
       // Visit the example app, which is a page that will trigger a query and mutation
       cy.visit('cypress/pages/index.html');
     });
@@ -26,12 +26,8 @@ context('cy.interceptGql', () => {
 
     it('should be able to spy on a specific operation', () => {
       cy.wait('@TestQuery')
-        .wait('@TestMutation');
-    });
-
-    it('should be able to stub a specific operation', () => {
-      cy.wait('@TestQuery')
-        .wait('@TestMutation');
+        .wait('@TestMutation')
+        .wait('@TestQueryCollection');
     });
   });
 
@@ -41,6 +37,7 @@ context('cy.interceptGql', () => {
       cy.interceptGql('**/api/graphql', [
         ['TestQuery', {statusCode: 200, body: {data: 'Intercepted Query!'}}],
         ['TestMutation', {statusCode: 200, body: {data: 'Intercepted Mutation!'}}],
+        ['TestQueryCollection', {statusCode: 200, body: {data: 'Intercepted Query Collection!'}}],
       ]);
       cy.visit('cypress/pages/index.html');
     });
@@ -50,6 +47,8 @@ context('cy.interceptGql', () => {
         .its('response.body.data').should('eq', 'Intercepted Query!');
       cy.wait('@TestMutation')
         .its('response.body.data').should('eq', 'Intercepted Mutation!');
+      cy.wait('@TestQueryCollection')
+        .its('response.body.data').should('eq', 'Intercepted Query Collection!');
     });
   });
 });

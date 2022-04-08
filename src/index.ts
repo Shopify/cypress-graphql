@@ -35,7 +35,7 @@ declare global {
        */
       interceptGql(
         graphqlApiUrl: string,
-        knownOperations: (
+        knownOperations?: (
           | string
           | [string, StaticResponse | HttpResponseInterceptor]
           | [string, any | any]
