@@ -31,9 +31,9 @@ This command sets up spies and stubs for a graphql endpoint, similar to [cypress
 #### Intercept any request
 
 ```
-cy.interceptGql('**/graphql')                         // register route intercepts
-cy.get('button[type="submit"]').click()               // make the UI send a request
-cy.wait('@GraphQL').its('status').should('eq', 200)   // test the response
+cy.interceptGql('**/graphql')                                    // register route intercepts
+cy.get('button[type="submit"]').click()                          // make the UI send a request
+cy.wait('@GraphQL').its('response.statusCode').should('eq', 200) // test the response
 ```
 
 #### Intercept a specific operation
