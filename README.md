@@ -1,3 +1,5 @@
+> **This repository is no longer maintained.** It has been archived and receives no updates or security fixes.
+
 # `@shopify/cypress-graphql`
 
 [![Build Status](https://github.com/Shopify/cypress-graphql/workflows/CI/badge.svg?branch=main)](https://github.com/Shopify/cypress-graphql/actions?query=workflow%3ACI)
